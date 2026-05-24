@@ -134,7 +134,7 @@ function M.new( db, event_bus )
   end
 
   local function print_transmog_rolling_setting( show_threshold )
-    if m.bcc or m.wotlk then return end  -- Transmog rolling is Vanilla-only
+    if m.bcc then return end  -- Transmog rolling is Vanilla-only
     local tmog_rolling_enabled = db.tmog_rolling_enabled
     local threshold = show_threshold and tmog_rolling_enabled and string.format( " (%s)", hl( db.tmog_roll_threshold ) ) or ""
     info( string.format( "Transmog rolling is %s%s.", tmog_rolling_enabled and m.msg.enabled or m.msg.disabled, threshold ) )
@@ -506,7 +506,7 @@ function M.new( db, event_bus )
     show_minimap_button = show_minimap_button,
     subscribe = subscribe,
     tmog_roll_threshold = get( "tmog_roll_threshold" ),
-    tmog_rolling_enabled = get( "tmog_rolling_enabled", "Vanilla", false ),
+    tmog_rolling_enabled = get( "tmog_rolling_enabled"),
     unlock_minimap_button = unlock_minimap_button,
     default_rolling_time_seconds = get( "default_rolling_time_seconds" ),
     master_loot_frame_rows = get( "master_loot_frame_rows" ),
