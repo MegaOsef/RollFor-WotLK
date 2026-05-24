@@ -26,7 +26,7 @@ function M.new( chat, roll_controller, softres, config )
     end
 
     local roll_type = winners[ 1 ].roll_type
-    local roll_type_str = roll_type == RT.MainSpec and "" or string.format( " (%s)", m.roll_type_abbrev_chat( roll_type ) )
+    local roll_type_str = roll_type == RT.MainSpec and "" or string.format( " (%s)", m.roll_type_abbrev( roll_type ) )
     local rerolling = winners[ 1 ].rerolling
     local item = winners[ 1 ].item
 
@@ -132,7 +132,7 @@ function M.new( chat, roll_controller, softres, config )
 
     local top_rollers_str = m.prettify_table( player_names )
     local top_rollers_str_colored = m.prettify_table( player_names, hl )
-    local roll_type_str = roll_type == RT.MainSpec and "" or string.format( " (%s)", m.roll_type_abbrev_chat( roll_type ) )
+    local roll_type_str = roll_type == RT.MainSpec and "" or string.format( " (%s)", m.roll_type_abbrev( roll_type ) )
 
     local function message( rollers, f )
       return string.format(
